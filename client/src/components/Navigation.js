@@ -30,7 +30,7 @@ const Navigation = () => {
   const dispatch = useDispatch()
 
   const user = useSelector(selectUser)
-  
+
   const status = useSelector(isLogin)
 
   const [modalLogin, setModalLogin] = useState(false);
@@ -204,7 +204,7 @@ const Navigation = () => {
                       {message && message}
                     </div>
                     <Form onSubmit={(e) => handleSubmitRegis.mutate(e)}>
-                    <Form.Group className="label" controlId="formBasicPassword">
+                      <Form.Group className="label" controlId="formBasicPassword">
                         <Form.Control onChange={handleChange} value={fullname} type="text" placeholder="Full Name" name="fullname" />
                       </Form.Group>
                       <Form.Group className="label" controlId="formBasicEmail">
@@ -234,9 +234,6 @@ const Navigation = () => {
             </div>
           }
           {status === true && user.status === "user" && <>
-          <div className="chat">
-          <img onClick={() => setUserchat(true)} src={AdminChat} alt="chat" />
-        </div>
             <div className="dropdown">
               <ul>
                 <li className="profile-img"><img src={Zayn} alt="PP" />
@@ -251,10 +248,7 @@ const Navigation = () => {
               </ul>
             </div>
           </>}
-          {status === true && user.status === "admin" &&  <>
-        <div className="chat">
-          <img onClick={() => setAdminchat(true)} src={UserChat} alt="chat" />
-        </div>
+          {status === true && user.status === "admin" && <>
             <div className="dropdown">
               <ul>
                 <li className="profile-img"><img src={Admin} alt="PP" />
@@ -269,22 +263,6 @@ const Navigation = () => {
               </ul>
             </div>
           </>}
-          <Modal
-        show={Adminchat}
-        onHide={() => setAdminchat(false)}
-        aria-labelledby="contained-modal-title-vcenter" centered>
-        <Modal.Body style={{ backgroundColor: "white" }}>
-          <ChatAdmin/>
-        </Modal.Body>
-      </Modal>
-      <Modal
-        show={Userchat}
-        onHide={() => setUserchat(false)}
-        aria-labelledby="contained-modal-title-vcenter" centered>
-        <Modal.Body style={{ backgroundColor: "white" }}>
-          <ChatUser/>
-        </Modal.Body>
-      </Modal>
         </Navbar.Collapse>
       </Container>
     </Navbar>

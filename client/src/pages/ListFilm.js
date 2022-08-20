@@ -5,10 +5,18 @@ import Navigation from "../components/Navigation";
 import Polygon from '../assets/img/polygon.png'
 import { API } from "../config/api";
 import rupiahFormat from 'rupiah-format';
+import { useQuery, useMutation } from "react-query";
 
 const ListFilm = () => {
 
     const [transactions, setTransactions] = useState([])
+
+    let { data: transaction, refetch } = useQuery("transactionCache", async () => {
+        const response = await API.get("/transactions");
+        console.log(response);
+    });
+
+    
 
     const getTransactions = async () => {
         try {
@@ -21,7 +29,7 @@ const ListFilm = () => {
 
     useEffect(() => {
         getTransactions();
-    }, []);
+    }, [transactions]);
 
     const handleUpdate = async (id) => {
         try {

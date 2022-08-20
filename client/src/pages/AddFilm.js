@@ -38,9 +38,6 @@ export default function AddFilm() {
         }
     };
 
-
-    console.log(categories);
-
     const [form, setForm] = useState({
         thumbnail: '',
         title: '',

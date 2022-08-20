@@ -26,7 +26,7 @@ const MyFilm = () => {
 
     useEffect(() => {
         getMyFilm();
-    }, []);
+    }, [myFilm]);
 
     const onclickFilm = (item) => {
         if (item.status === 'Approved') {

@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../redux/userSlice'
 import { API } from '../config/api';
 import rupiahFormat from 'rupiah-format';
+import moment from 'moment'
 
 const Profile = () => {
 
@@ -15,6 +16,7 @@ const Profile = () => {
     const getMyTransactions = async () => {
         try {
             const response = await API.get('/my-transactions')
+            console.log(response.data.data.transactions);
             setmyTransactions(response.data.data.transactions);
         } catch (error) {
             console.log(error);
@@ -23,7 +25,7 @@ const Profile = () => {
 
     useEffect(() => {
         getMyTransactions();
-    }, []);
+    }, [myTransactions]);
 
     return (
         <div>
@@ -52,10 +54,13 @@ const Profile = () => {
                             {myTransactions?.map((data, index) => {
                                 return (
                                     <div key={index} className="card">
+                                        <div className="filmImg">
+                                            <img style={{ width: "100px" }} src={`http://localhost:5000/uploads/${data?.film?.thumbnail}`} alt="Image" />
+                                        </div>
                                         <div className="left">
                                             <h3>{data?.film?.title}</h3>
-                                            <p>Saturday, 12 April 2021</p>
-                                            <p><b>Total : {rupiahFormat.convert(data?.price)}</b></p>
+                                            <p>{moment(data?.createdAt).format('LLL')}</p>
+                                            <p style={{ fontSize: "17px" }}><b>Total : {rupiahFormat.convert(data?.price)}</b></p>
                                         </div>
                                         <div className="right">
                                             <div className="status">
@@ -64,9 +69,9 @@ const Profile = () => {
                                                         <h3 className='text-warning'>{data?.status}</h3>
                                                     </div> :
                                                     <div className="wrapper">
-                                                    <h3 style={{color:"green"}} className='text-success'>{data?.status}</h3>
-                                                </div>
-                                                    }
+                                                        <h3 style={{ color: "green" }} className='text-success'>{data?.status}</h3>
+                                                    </div>
+                                                }
                                             </div>
                                         </div>
                                     </div>

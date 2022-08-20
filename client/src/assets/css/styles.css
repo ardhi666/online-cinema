@@ -544,11 +544,10 @@ height: 100%;
 .profile .wrapper .right .transaction .card .right .status .wrapper {
     width: 90px;
     height: 30px;
-    background-color: rgba(205, 46, 113, 0.44);
 }
 
 .profile .wrapper .right .transaction .card .right .status .wrapper h3{
-    font-size: 20px;
+    font-size: 25px;
     text-align: center;
 }
 
