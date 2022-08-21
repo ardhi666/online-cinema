@@ -185,6 +185,27 @@ body {
     display: flex;
 }
 
+.container .board-text {
+    position: absolute;
+}
+
+.container .board-text .title h2{
+    padding-top: 80px;
+    padding-left: 120px;
+    font-size: 40px;
+    font-weight: 600;
+    color: #CD2E71;
+}
+
+.container .board-text .desc p{
+    font-size: 20px;
+    color: white;
+    width: 1000px;
+    padding-top: 80px;
+    padding-left: 120px;
+    text-align: justify;
+}
+
 .container .top .left-arrow {
     position: absolute;
     cursor: pointer;

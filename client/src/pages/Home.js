@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Navigation from '../components/Navigation'
 import { API } from "../config/api";
 import Deadpool from '../assets/img/jumbotron.png'
-import ImageSlider from '../components/ImageSlider';
 
 const Home = () => {
 
@@ -27,8 +26,14 @@ const Home = () => {
     <div>
       <Navigation />
       <div className="container">
-        <div style={{marginLeft:"80px"}} className="top">
-        <ImageSlider/>
+        <div style={{ marginLeft: "80px" }} className="top">
+          <img src={Deadpool} alt="img" />
+        </div>
+        <div className="board-text">
+          <div className="title">
+            <h2><span style={{ color: "white" }}>Cinema</span> Online</h2>
+          </div>
+          <div className="desc"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit iusto velit non veniam doloribus, odit eius laborum vel modi harum voluptatem ipsam quidem assumenda dolor perspiciatis quaerat est repudiandae qui eligendi quia amet aperiam, aliquam eos consectetur. Voluptate ratione provident molestiae totam eius velit optio eaque nesciunt ea incidunt rerum neque consequatur laborum, voluptatibus odio eum inventore, eos quos nostrum corporis iure libero! Sed iure magni odio perferendis, modi nihil soluta quos velit ipsam asperiores impedit. Asperiores voluptatibus nobis non?</p></div>
         </div>
         <div className="bot">
           <div className="title">
